@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <div class="todo-app">
+        <h2 class="title">TO DO LIST</h2>
+        <form>
+            <input placeholder="Add a task" id="taskInp">
+            <button class="btn">ADD</button>
+        </form>
+        
+        <h5 class="title">UPCOMING</h5>
+        <ul class="list" id="upcomingList"></ul>
+
+        <h5 class="title">COMPLETED</h5>
+        <ul class="list" id="completeList"></ul>
+    </div>
+
+    <div class="manipulate-block">
+        <button class="btn" id="evenBtn">Even Highlight</button>
+        <button class="btn" id="oddBtn">Odd Highlight</button>
+        <button class="btn" id="delFirstBtn">Delete First</button>
+        <button class="btn" id="delLastBtn">Delete Last</button>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

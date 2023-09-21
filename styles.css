@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;500&display=swap');
+
+/* Переменные для цветов */
+:root {
+	--title-color: #0D47A1;
+	--app-bg-color: #318bcf1e;
+	--app-color: #a9d3ff;
+
+	--form-bg-color: #e6f1f9;
+	--btn-color: #0d346ab3;
+
+	--task-text-color: #021633;
+	--task-bg-color: #edf7fe;
+	--task-shadow-color: #1e6ba58b;
+
+	--task-btn-color: #0d346a;
+	--task-btn-bg-color: #dee7ee;
+
+	--manipulate-btn-color: rgba(34, 57, 91, 0.702);
+	--manipulate-btn-bg-color: #d5dfe7;
+
+	--even-main-color: #fded7b;
+    --even-shadow-color: #f2eb66e7;
+    --even-btn-color: #eddb54;
+
+	--odd-main-color: #ffcca0;
+    --odd-shadow-color: #ffd2ab;
+    --odd-btn-color: #f3b783;
+
+	--trans-btn: background-color 1s ease-in-out;
+  }
+
+/* Глобальные стили */
+* {
+	box-sizing: border-box;
+	font-family: 'Sen', sans-serif;
+  }
+
+body {
+	text-align: center;
+	background-color: var(--bg-color);
+}
+
+
+/* Контейнер приложения для задач */
+.todo-app {
+	max-width: 600px;
+	min-height: 600px;
+	margin: 100px auto 30px auto;
+	padding: 20px;
+	border-radius: 20px;
+	background-color: var(--app-color);
+}
+
+.title {
+	margin-top: 30px;
+	color: var(--title-color);
+}
+
+
+/* Форма для создания новой задачи */
+#taskInp {
+	font-size: 16px;
+	padding: 9px 15px;
+	border-radius: 20px;
+	border: none;
+	outline: none;
+	background-color: var(--form-bg-color);
+}
+#taskInp,
+.list {
+	display: inline-block;
+}
+
+
+/* Кнопка */
+.btn {
+	font-size: 16px;
+	font-weight: 600;
+	padding: 9px;
+	color: var(--btn-color);
+	background-color: var(--form-bg-color);
+	border-radius: 50px;
+	border: none;
+}
+.btn:hover {
+	cursor: pointer;
+	opacity: 0.9;
+	transition: 0.1s ease-in;
+}
+.btn:active {
+	opacity: 0.7;
+}
+
+
+/* Список и элементы списка */
+.list {
+	max-width: 100%;
+	padding: 0;
+	margin-top: 0px;
+	list-style-type: none;
+}
+
+li {
+	max-width: 100%;
+	margin: 10px;
+	padding: 12px 16px;
+	border-radius: 20px;
+	word-wrap: break-word;
+	transition: background-color 1s, box-shadow 1s;
+	background-color: var(--task-bg-color);
+	box-shadow: 0 10px 40px var(--task-shadow-color);
+}
+li .text {
+	color: var(--task-text-color);
+}
+.list span {
+	margin-right: 5px;
+}
+
+
+/* Кнопки для взаимодействия с задачей */
+.btn-container {
+	display: inline-block;
+}
+.list .remove,
+.list .edit,
+.list .complete {
+	font-size: 14px;
+	font-weight: 500;
+	padding: 3px 5px;
+	border-radius: 10px;
+	cursor: pointer;
+	color: var(--task-btn-color);
+	background-color: var(--task-btn-bg-color);
+}
+.list .remove:hover,
+.edit:hover,
+.list .complete:hover {
+	opacity: 0.7;
+	transition: 0.1s ease-in;
+}
+.list .done {
+	opacity: 0.7;
+}
+.list .done .text {
+	text-decoration: line-through;
+}
+
+.edit-inp {
+	height: 4em;
+	width: 13em;
+	padding: 5px;
+	border-radius: 5px;
+	outline: none;
+	background-color: var(--task-bg-color);
+	border: 1px solid var(--task-text-color);
+}
+
+
+/* Блок для манипуляции с задачами */
+.manipulate-block {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.manipulate-block .btn {
+	color: var(--manipulate-btn-color);
+	background-color: var(--manipulate-btn-bg-color);
+}
+
+@media (max-width: 600px) {
+	.manipulate-block {
+        display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(100px, 2fr));
+		justify-items: center;
+		gap: 10px;
+    }
+  }
+
+
+/* Визуальные эффекты для выделения чётных/нечётных задач */
+.even,
+.odd {
+    animation: pulse 1s infinite alternate ease-in-out;
+    transform-origin: center;
+}
+.even {
+    background-color: var(--even-main-color);
+    box-shadow: 0 0 40px var(--even-shadow-color);
+}
+.odd {
+    background-color: var(--odd-main-color);
+    box-shadow: 0 0 40px var(--odd-shadow-color);
+}
+
+.even .remove,
+.even .edit,
+.even .complete {
+	background-color: var(--even-btn-color);
+	transition: var(--trans-btn)
+}
+
+.odd .remove,
+.odd .edit,
+.odd .complete {
+	background-color: var(--odd-btn-color);
+	transition: var(--trans-btn)
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
